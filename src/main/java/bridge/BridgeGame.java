@@ -1,23 +1,59 @@
 package bridge;
 
-/**
- * 다리 건너기 게임을 관리하는 클래스
- */
-public class BridgeGame {
+import bridge.domain.Bridge;
+import bridge.domain.GameStatus;
+import bridge.util.BridgeStatus;
+import bridge.util.Moving;
 
-    /**
-     * 사용자가 칸을 이동할 때 사용하는 메서드
-     * <p>
-     * 이동을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
-     */
-    public void move() {
+public class BridgeGame {
+    private final Bridge bridge;
+    private final GameStatus gameStatus;
+    private BridgeStatus bridgeStatus;
+
+    BridgeGame(Bridge bridge) {
+        this.bridge = bridge;
+        this.gameStatus = new GameStatus();
+        this.bridgeStatus = BridgeStatus.CROSSING;
+        gameStatus.init();
     }
 
-    /**
-     * 사용자가 게임을 다시 시도할 때 사용하는 메서드
-     * <p>
-     * 재시작을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
-     */
+    public void move(Moving moving) {
+        boolean isSuccess = bridge.isMovable(gameStatus.getPosition(), moving);
+        gameStatus.move(moving, bridge.isMovable(gameStatus.getPosition(), moving));
+        bridgeStatus = findBridgeStatus(isSuccess);
+    }
+
+    private BridgeStatus findBridgeStatus(boolean isSuccess) {
+        if (!isSuccess) {
+            return BridgeStatus.FALL;
+        }
+        if (gameStatus.getPosition() == bridge.size()) {
+            return BridgeStatus.CROSSED;
+        }
+        return BridgeStatus.CROSSING;
+    }
+
     public void retry() {
+        gameStatus.init();
+    }
+
+    public boolean isCrossing() {
+        return bridgeStatus.equals(BridgeStatus.CROSSING);
+    }
+
+    public boolean isCrossed() {
+        return bridgeStatus.equals(BridgeStatus.CROSSED);
+    }
+
+    public boolean isFall() {
+        return bridgeStatus.equals(BridgeStatus.FALL);
+    }
+
+    public String getMapToString() {
+        return gameStatus.getMapToString();
+    }
+
+    public int getAttempt() {
+        return gameStatus.getAttempt();
     }
 }
