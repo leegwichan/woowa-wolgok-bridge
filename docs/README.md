@@ -25,6 +25,7 @@
 
 ### OutputView
 - [x] 다리 건너기 시작 안내 문구 출력 #printStartGame()
+- [x] 에러 메세지 출력 #printErrorMessage()
 - [x] 다리 현재 상황 출력 #printMap()
     ```text
     [ O |   |   ]

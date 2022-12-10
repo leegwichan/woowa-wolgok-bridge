@@ -83,6 +83,10 @@ public class OutputView {
         print(GAME_START);
     }
 
+    public void printErrorMessage(Exception exception) {
+        print(exception.getMessage());
+    }
+
     private void print(String message) {
         System.out.println(message);
     }
