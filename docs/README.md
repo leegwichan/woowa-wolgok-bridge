@@ -43,7 +43,7 @@
 - [ ] getter를 통해 정보 제공
 
 ### BridgeMaker
-- [ ] 0과 1의 값을 통해 U, D 값을 반환 #makeBridge()
+- [x] 0과 1의 값을 통해 D, U 값을 반환 #makeBridge()
 
 ### BridgeMakerAdapter
 - [ ] BridgeMaker에서 반환한 U, D값을 통해 Enum 값 반환
