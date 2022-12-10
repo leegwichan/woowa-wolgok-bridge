@@ -8,30 +8,31 @@ import bridge.domain.*;
 public class BridgeGame {
     private static Bridge bridge;
     private BridgeMap bridgeMap = new BridgeMap();
-    private TryCount tryCount = new TryCount();
+    private Player player = new Player();
     private boolean canMove = true;
 
     public BridgeGame(Bridge bridge) {
         this.bridge = bridge;
     }
 
-    public void move(Player player, Direction direction) {
+    public void move(Direction direction) {
         canMove = bridge.canMove(player, direction);
         Floor nowFloor = bridge.getNowBridge(player);
         bridgeMap.addBridgeMap(nowFloor, canMove);
+        player.moveForward();
     }
 
     public boolean canMove() {
         return canMove;
     }
 
-    public boolean isFinish(Player player) {
+    public boolean isFinish() {
         return bridge.isFinish(player);
     }
 
     public void retry() {
         bridgeMap.init();
-        tryCount.addTryCount();
+        player.addTryCount();
     }
 
     public String getBridgeMap() {
@@ -39,6 +40,6 @@ public class BridgeGame {
     }
 
     public int getTryCount() {
-        return tryCount.getTryCount();
+        return player.getTryCount();
     }
 }

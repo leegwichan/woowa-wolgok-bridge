@@ -32,13 +32,11 @@ public class BridgeController {
     }
 
     private void repeatGame() {
-        Player player = new Player();
         do {
             Direction direction = readMoving();
-            bridgeGame.move(player, direction);
-            player.moveForward();
+            bridgeGame.move(direction);
             OutputView.printMap(bridgeGame.getBridgeMap());
-        } while (bridgeGame.canMove() && !bridgeGame.isFinish(player));
+        } while (bridgeGame.canMove() && !bridgeGame.isFinish());
     }
 
     private BridgeSize readBridgeSize() {
