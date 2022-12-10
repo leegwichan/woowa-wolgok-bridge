@@ -36,10 +36,12 @@
 - [ ] 재시도를 위해 건넌 길을 초기화 하는 기능 #retry()
 - [ ] 현재 상황을 전달함 #getBridgeDto()
 
+- 추가적으로 시간이 된다면 Bridge를 따로 구현할 것
+
 ### BridgeDto
-- [ ] Bridge의 현재 상태를 가지고 있음
+- [x] Bridge의 현재 상태를 가지고 있음
   - 시도 횟수, 이동 결과, 성공 했는지
-- [ ] getter를 통해 정보 제공
+- [x] getter를 통해 정보 제공
 
 ### BridgeMaker
 - [x] 0과 1의 값을 통해 D, U 값을 반환 #makeBridge()
