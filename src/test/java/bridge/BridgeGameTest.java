@@ -60,4 +60,16 @@ public class BridgeGameTest {
         assertThat(exception.getMessage())
                 .isEqualTo("[ERROR] 다리를 더 이상 건널 수 없습니다.");
     }
+
+    @Test
+    void retryTest() {
+        BridgeGame bridgeGame = new BridgeGame(mockBridgeMakerAdapter(), 3);
+        bridgeGame.move(Square.UP);
+
+        bridgeGame.retry();
+        BridgeGameDto result = bridgeGame.getBridgeGameDto();
+
+        assertThat(result.getMovedSquare()).isEqualTo(List.of());
+        assertThat(result.getCountOfTry()).isEqualTo(2);
+    }
 }
