@@ -10,7 +10,13 @@ import bridge.constant.Square;
 import bridge.dto.BridgeGameDto;
 import bridge.helper.BridgeMakerAdapter;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.ArgumentsProvider;
+import org.junit.jupiter.params.provider.ArgumentsSource;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class BridgeGameTest {
 
@@ -26,6 +32,12 @@ public class BridgeGameTest {
         bridgeGame.move(Square.UP);
         bridgeGame.move(Square.UP);
         bridgeGame.move(Square.DOWN);
+    }
+
+    void moveByRoute(BridgeGame bridgeGame, List<Square> route) {
+        for (Square square : route) {
+            bridgeGame.move(square);
+        }
     }
 
     @Test
@@ -71,5 +83,27 @@ public class BridgeGameTest {
 
         assertThat(result.getMovedSquare()).isEqualTo(List.of());
         assertThat(result.getCountOfTry()).isEqualTo(2);
+    }
+
+    @ParameterizedTest(name = "isSuccessTest Case {index}")
+    @ArgumentsSource(SuccessTestData.class)
+    void isSuccessTest(List<Square> route, boolean expected) {
+        BridgeGame bridgeGame = new BridgeGame(mockBridgeMakerAdapter(), 3);
+        moveByRoute(bridgeGame, route);
+
+        boolean result = bridgeGame.isSuccess();
+        assertThat(result).isEqualTo(expected);
+    }
+
+    static class SuccessTestData implements ArgumentsProvider {
+
+        @Override
+        public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
+            return Stream.of(
+                    Arguments.of(CORRECT_ROUTE, true),
+                    Arguments.of(List.of(), false),
+                    Arguments.of(List.of(Square.UP, Square.UP, Square.UP), false)
+            );
+        }
     }
 }
