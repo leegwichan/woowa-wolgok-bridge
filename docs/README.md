@@ -16,7 +16,7 @@
 ## Class 별 구현 기능
 
 ### InputView
-- [ ] 다리의 길이 입력 #readBridgeSize()
+- [x] 다리의 길이 입력 #readBridgeSize()
   - 숫자를 입력하지 않은 경우, 에러 발생
 - [ ] 이동할 칸 입력 #readMoving()
   - U 또는 D를 입력하지 않은 경우, 에러 발생
