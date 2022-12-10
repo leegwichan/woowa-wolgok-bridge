@@ -32,6 +32,7 @@ public class BridgeGame {
     public void retry() {
         bridgeMap.init();
         player.addTryCount();
+        canMove = true;
     }
 
     public String getBridgeMap() {
