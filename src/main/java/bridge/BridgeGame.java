@@ -1,8 +1,10 @@
 package bridge;
 
 import bridge.constant.Square;
+import bridge.dto.BridgeGameDto;
 import bridge.helper.BridgeMakerAdapter;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * 다리 건너기 게임을 관리하는 클래스
@@ -11,6 +13,9 @@ public class BridgeGame {
 
     private final List<Square> correctSquare;
     private List<Square> movedSquare;
+    private int countOfTry = 1;
+
+
     public BridgeGame(BridgeMakerAdapter bridgeMaker, int size) {
         correctSquare = bridgeMaker.makeBridge(size);
     }
@@ -29,5 +34,18 @@ public class BridgeGame {
      * 재시작을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     public void retry() {
+    }
+
+    public BridgeGameDto getBridgeGameDto() {
+        return new BridgeGameDto(correctSquare, movedSquare, countOfTry, isSuccess());
+    }
+
+    private boolean isSuccess() {
+        if (correctSquare.size() != movedSquare.size()) {
+            return false;
+        }
+        return IntStream.range(0, correctSquare.size())
+                .mapToObj(index -> correctSquare.get(index) == movedSquare.get(index))
+                .reduce(true, Boolean::logicalAnd);
     }
 }

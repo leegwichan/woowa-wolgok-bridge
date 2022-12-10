@@ -31,10 +31,10 @@
   - 게임 성공 여부, 총 시도 횟수
 
 ### BridgeGame
-- [ ] 생성시, Bridge를 랜덤 값을 통해 생성함 BridgeGame()
+- [x] 생성시, Bridge를 랜덤 값을 통해 생성함 BridgeGame()
 - [ ] 한칸 이동하도록 함 #move()
 - [ ] 재시도를 위해 건넌 길을 초기화 하는 기능 #retry()
-- [ ] 현재 상황을 전달함 #getBridgeDto()
+- [x] 현재 상황을 전달함 #getBridgeDto()
 
 - 추가적으로 시간이 된다면 Bridge를 따로 구현할 것
 
