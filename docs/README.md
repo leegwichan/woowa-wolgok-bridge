@@ -25,7 +25,7 @@
 
 ### OutputView
 - [x] 다리 건너기 시작 안내 문구 출력 #printStartGame()
-- [ ] 다리 현재 상황 출력 #printMap()
+- [x] 다리 현재 상황 출력 #printMap()
 - [ ] 최종 게임 결과 출력 #printResult()
   - 다리 현재 상황
   - 게임 성공 여부, 총 시도 횟수
