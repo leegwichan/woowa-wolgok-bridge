@@ -3,7 +3,7 @@ package bridge.controller;
 import bridge.BridgeMaker;
 import bridge.BridgeRandomNumberGenerator;
 import bridge.domain.*;
-import bridge.dto.BridgeStateDto;
+import bridge.service.BridgeGame;
 import bridge.view.InputView;
 import bridge.view.OutputView;
 
@@ -12,22 +12,29 @@ import java.util.List;
 public class BridgeController {
 
     private BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
-    private TryCount tryCount = new TryCount();
-    private static Bridge bridge;
+    private BridgeGame bridgeGame;
     public void run() {
         BridgeSize bridgeSize = readBridgeSize();
-        bridge = makeBridge(bridgeSize);
-        repeatGame();
+        Bridge bridge = makeBridge(bridgeSize);
+        bridgeGame = new BridgeGame(bridge);
+
+        while (true) {
+            repeatGame();
+            if (bridgeGame.canMove() || readCommand().isQuit()) {
+                endGame();
+                break;
+            }
+        }
     }
 
     private void repeatGame() {
-        boolean isContinue = true;
         Player player = new Player();
-        while (!isContinue) {
+        do {
             Direction direction = readMoving();
-            boolean canMove = bridge.canMove(player, Floor.from(direction.getMark()));
-            BridgeStateDto nowBridgeState = bridge.getNowBridgeState(player, canMove);
-        }
+            bridgeGame.move(player, direction);
+            player.moveForward();
+            OutputView.printMap(bridgeGame.getBridgeMap());
+        } while (bridgeGame.canMove() && !bridgeGame.isFinish(player));
     }
 
     private BridgeSize readBridgeSize() {
@@ -61,4 +68,3 @@ public class BridgeController {
         List<String> bridge = bridgeMaker.makeBridge(size.getSize());
         return Bridge.from(bridge);
     }
-}

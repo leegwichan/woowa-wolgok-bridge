@@ -11,7 +11,6 @@ public class Bridge {
         this.bridge = bridge.stream()
                 .map(Floor::from)
                 .collect(Collectors.toUnmodifiableList());
-
     }
 
     public static Bridge from(List<String> bridge) {
@@ -19,8 +18,11 @@ public class Bridge {
     }
 
     public boolean canMove(Player player, Direction direction) {
-        return bridge.get(player.getPosition()).equals(direction.getMark());
+        return bridge.get(player.getPosition()).equals(direction);
     }
+
+    public boolean isFinish(Player player) {
+        return bridge.size() == player.getPosition();
     }
 
     public Floor getNowBridge(Player player) {
