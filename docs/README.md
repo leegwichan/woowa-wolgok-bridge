@@ -20,7 +20,7 @@
   - 숫자를 입력하지 않은 경우, 에러 발생
 - [x] 이동할 칸 입력 #readMoving()
   - U 또는 D를 입력하지 않은 경우, 에러 발생
-- [ ] 다시 시도 여부 입력 #readGameCommand()
+- [x] 다시 시도 여부 입력 #readGameCommand()
   - R 또는 Q를 입력하지 않은 경우, 에러 발생
 
 ### OutputView

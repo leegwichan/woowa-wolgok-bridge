@@ -1,6 +1,7 @@
 package bridge.view.input;
 
 import bridge.constant.Constant;
+import bridge.constant.RetryStatus;
 import bridge.constant.Square;
 import bridge.exception.ErrorMessage;
 import camp.nextstep.edu.missionutils.Console;
@@ -12,6 +13,7 @@ public class InputView {
 
     private static final String REQUEST_BRIDGE_SIZE = "다리의 길이를 입력해주세요.";
     private static final String REQUEST_MOVING_FORMAT = "이동할 칸을 선택해주세요. (위: %s, 아래: %s)";
+    private static final String REQUEST_COMMAND_FORMAT = "게임을 다시 시도할지 여부를 입력해주세요. (재시도: %s, 종료: %s)";
 
     /**
      * 다리의 길이를 입력받는다.
@@ -50,8 +52,11 @@ public class InputView {
     /**
      * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
      */
-    public String readGameCommand() {
-        return null;
+    public RetryStatus readGameCommand() {
+        print(String.format(REQUEST_COMMAND_FORMAT,
+                RetryStatus.Retry.getFormat(), RetryStatus.Quit.getFormat()));
+        String input = read();
+        return RetryStatus.getRetryStatus(input);
     }
 
     private void print(String message) {
