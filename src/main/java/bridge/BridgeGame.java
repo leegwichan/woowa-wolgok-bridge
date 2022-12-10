@@ -36,6 +36,16 @@ public class BridgeGame {
     public void retry() {
     }
 
+    public boolean isContinue() {
+        return isOnBridge() && (correctSquare.size() != movedSquare.size());
+    }
+
+    public boolean isOnBridge() {
+        return IntStream.range(0, movedSquare.size())
+                .mapToObj(index -> correctSquare.get(index) == movedSquare.get(index))
+                .reduce(true, Boolean::logicalAnd);
+    }
+
     public BridgeGameDto getBridgeGameDto() {
         return new BridgeGameDto(correctSquare, movedSquare, countOfTry, isSuccess());
     }
