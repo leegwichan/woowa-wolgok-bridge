@@ -13,6 +13,10 @@ public class Floor {
         return new Floor(direction);
     }
 
+    public String getDirection() {
+        return direction;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(direction);
