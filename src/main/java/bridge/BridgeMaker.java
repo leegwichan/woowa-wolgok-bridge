@@ -1,5 +1,6 @@
 package bridge;
 
+import bridge.util.Moving;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,7 +16,7 @@ public class BridgeMaker {
     public List<String> makeBridge(int size) {
         return IntStream.range(0, size)
                 .map(i -> bridgeNumberGenerator.generate())
-                .mapToObj(flag -> Move.findMove(flag).getCode())
+                .mapToObj(flag -> Moving.findMoving(flag).code())
                 .collect(Collectors.toList());
     }
 }

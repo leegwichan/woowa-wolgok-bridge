@@ -1,39 +1,34 @@
-package bridge;
+package bridge.util;
 
 import java.util.Arrays;
 
-public enum Move {
+public enum Moving {
     UP(1, "U"),
     DOWN(0, "D");
 
     private final int flag;
     private final String code;
 
-    Move(int flag, String code) {
+    Moving(int flag, String code) {
         this.flag = flag;
         this.code = code;
     }
 
-    public static Move findMove(int flag) {
-        return Arrays.stream(Move.values())
+    public static Moving findMoving(int flag) {
+        return Arrays.stream(Moving.values())
                 .filter(move -> move.flag == flag)
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException());
     }
 
-    public static Move findMove(String code) {
-        return Arrays.stream(Move.values())
+    public static Moving findMoving(String code) {
+        return Arrays.stream(Moving.values())
                 .filter(move -> move.code.equals(code))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException());
     }
 
-    public static boolean isMove(String code) {
-        return Arrays.stream(Move.values())
-                .anyMatch(move -> move.code.equals(code));
-    }
-
-    public String getCode() {
+    public String code() {
         return code;
     }
 }
