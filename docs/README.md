@@ -72,7 +72,7 @@
 
 ### BridgeApplication
 - [ ] 전반적인 로직 구현
-  - [ ] 초기화 과정 #BridgeApplication()
+  - [x] 초기화 과정 # initializeBridgeGame()
   - [ ] 에러 발생시, 다시 실행하는 기능
   - [ ] 반복하여 길을 건너도록 하는 기능
   - [ ] 재시도 여부를 묻는 기능
