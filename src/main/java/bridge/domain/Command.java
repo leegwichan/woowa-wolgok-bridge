@@ -17,4 +17,8 @@ public enum Command {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("R(재시작) 또는 Q(종료)를 입력해주세요."));
     }
+
+    public boolean isQuit() {
+        return this.equals(QUIT);
+    }
 }

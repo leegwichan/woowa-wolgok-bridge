@@ -48,6 +48,15 @@ public class BridgeController {
         }
     }
 
+    private Command readCommand() {
+        try {
+            return Command.from(InputView.readGameCommand());
+        } catch (IllegalArgumentException e) {
+            OutputView.printErrorMessage(e.getMessage());
+            return readCommand();
+        }
+    }
+
     private Bridge makeBridge(BridgeSize size) {
         List<String> bridge = bridgeMaker.makeBridge(size.getSize());
         return Bridge.from(bridge);
