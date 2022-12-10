@@ -44,9 +44,11 @@
 
 ### BridgeMaker
 - [x] 0과 1의 값을 통해 D, U 값을 반환 #makeBridge()
+  - 0, 1의 값이 반환되지 않는 경우 에러 발생
 
 ### BridgeMakerAdapter
-- [ ] BridgeMaker에서 반환한 U, D값을 통해 Enum 값 반환
+- [x] BridgeMaker에서 반환한 U, D값을 통해 Enum 값 반환
+  - 반환 값이 U, D가 아닌 경우, 예외를 발생시킴
 
 ### BridgeApplication
 - [ ] 전반적인 로직 구현
