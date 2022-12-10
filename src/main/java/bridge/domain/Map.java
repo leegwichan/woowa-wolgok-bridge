@@ -1,7 +1,7 @@
 package bridge.domain;
 
 import bridge.util.MapMark;
-import bridge.util.Move;
+import bridge.util.Moving;
 import java.util.StringJoiner;
 
 public class Map {
@@ -11,27 +11,27 @@ public class Map {
             MapMark.SUFFIX.mark());
 
 
-    public void addMove(String move, boolean isFail) {
+    public void addMove(Moving moving, boolean isSuccess) {
         String mark = MapMark.SUCCESS.mark();
-        if (isFail) {
+        if (!isSuccess) {
             mark = MapMark.FAIL.mark();
         }
-        addMark(mark, move);
+        addMark(mark, moving);
     }
 
-    private void addMark(String mark, String move) {
-        if (Move.findMove(move).equals(Move.UP)) {
+    private void addMark(String mark, Moving moving) {
+        if (moving.equals(Moving.UP)) {
             upperMap.add(mark);
             lowerMap.add(MapMark.EMPTY.mark());
             return;
         }
-        if (Move.findMove(move).equals(Move.DOWN)) {
+        if (moving.equals(Moving.DOWN)) {
             upperMap.add(MapMark.EMPTY.mark());
             lowerMap.add(mark);
         }
     }
 
     public String toString() {
-        return upperMap + "\n" + lowerMap;
+        return upperMap + lowerMap.toString();
     }
 }
