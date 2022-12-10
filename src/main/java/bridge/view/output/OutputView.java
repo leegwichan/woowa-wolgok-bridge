@@ -11,6 +11,12 @@ import java.util.stream.IntStream;
 public class OutputView {
 
     private static final String GAME_START = "다리 건너기 게임을 시작합니다.";
+    private static final String GAME_RESULT = "최종 게임 결과";
+    private static final String BLANK = "";
+    private static final String GAME_SUCCESS = "게임 성공 여부: ";
+    private static final String COUNT_OF_TRY = "총 시도한 횟수: ";
+    private static final String SUCCESS_LETTER = "성공";
+    private static final String FAIL_LETTER = "실패";
 
     private static final String BRIDGE_PREFIX = "[ ";
     private static final String BRIDGE_SUFFIX = " ]";
@@ -18,7 +24,7 @@ public class OutputView {
 
     private static final String MOVE_SUCCESS = "O";
     private static final String MOVE_FAIL = "X";
-    private static final String BLANK = " ";
+    private static final String NOTHING = " ";
 
     /**
      * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.
@@ -40,7 +46,7 @@ public class OutputView {
 
     private String getMark(Square correct, Square moved, Square road) {
         if (moved != road) {
-            return BLANK;
+            return NOTHING;
         }
         if (moved == correct) {
             return MOVE_SUCCESS;
@@ -53,7 +59,24 @@ public class OutputView {
      * <p>
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void printResult() {
+    public void printResult(BridgeGameDto dto) {
+        print(GAME_RESULT);
+        printMap(dto);
+        print(BLANK);
+        printIsSuccess(dto.getSuccess());
+        printCountOfTry(dto.getCountOfTry());
+    }
+
+    private void printIsSuccess(boolean isSuccess) {
+        if (isSuccess) {
+            print(GAME_SUCCESS + SUCCESS_LETTER);
+            return;
+        }
+        print(GAME_SUCCESS + FAIL_LETTER);
+    }
+
+    private void printCountOfTry(int countOfTry) {
+        print(COUNT_OF_TRY + countOfTry);
     }
 
     public void printStartGame() {

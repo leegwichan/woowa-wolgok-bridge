@@ -26,9 +26,21 @@
 ### OutputView
 - [x] 다리 건너기 시작 안내 문구 출력 #printStartGame()
 - [x] 다리 현재 상황 출력 #printMap()
-- [ ] 최종 게임 결과 출력 #printResult()
+    ```text
+    [ O |   |   ]
+    [   | O | O ]
+    ```
+- [x] 최종 게임 결과 출력 #printResult()
   - 다리 현재 상황
   - 게임 성공 여부, 총 시도 횟수
+    ```text
+    최종 게임 결과
+    [ O |   |   ]
+    [   | O | O ]
+    
+    게임 성공 여부: 성공
+    총 시도한 횟수: 2
+    ```
 
 ### BridgeGame
 - [x] 생성시, Bridge를 랜덤 값을 통해 생성함 BridgeGame()
