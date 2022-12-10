@@ -3,7 +3,7 @@ package bridge.domain;
 import java.util.Arrays;
 
 public enum Command {
-    RESTART("R"),
+    RETRY("R"),
     QUIT("Q");
 
     private final String mark;
