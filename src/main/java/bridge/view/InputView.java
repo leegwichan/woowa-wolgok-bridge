@@ -14,7 +14,8 @@ public class InputView {
     }
 
     public String readMoving() {
-        return null;
+        System.out.println("이동할 칸을 선택해주세요. (위: U, 아래: D)");
+        return Console.readLine().trim();
     }
 
     public String readGameCommand() {
