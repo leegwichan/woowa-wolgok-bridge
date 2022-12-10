@@ -11,7 +11,7 @@ class BridgeSizeTest {
     @ParameterizedTest
     @ValueSource(ints = {-1, 0, 2, 21, 100})
     void createBridgeSizeOverRange(int input) {
-        Assertions.assertThatThrownBy(() -> new BridgeSize(input))
+        Assertions.assertThatThrownBy(() -> BridgeSize.from(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("다리 길이는 3부터 20 사이의 숫자여야 합니다.");
     }
