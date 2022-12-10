@@ -20,6 +20,7 @@ public class BridgeGame {
 
     public BridgeGame(BridgeMakerAdapter bridgeMaker, int size) {
         correctSquare = bridgeMaker.makeBridge(size);
+        movedSquare = new ArrayList<>();
     }
 
     /**
