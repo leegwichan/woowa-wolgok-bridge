@@ -18,7 +18,7 @@ public class BridgeController {
     private BridgeGame bridgeGame;
 
     public void run() {
-        initGame();
+        initBridge();
         while (true) {
             repeatGame();
             if (bridgeGame.canMove() || readCommand().isQuit()) {
@@ -29,7 +29,7 @@ public class BridgeController {
         }
     }
 
-    private void initGame() {
+    private void initBridge() {
         BridgeSize bridgeSize = readBridgeSize();
         Bridge bridge = makeBridge(bridgeSize);
         bridgeGame = new BridgeGame(bridge);
