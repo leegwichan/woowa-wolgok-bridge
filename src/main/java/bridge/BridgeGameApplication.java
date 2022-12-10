@@ -1,5 +1,6 @@
 package bridge;
 
+import bridge.constant.Square;
 import bridge.factory.BridgeFactory;
 import bridge.view.input.InputView;
 import bridge.view.output.OutputView;
@@ -12,6 +13,15 @@ public class BridgeGameApplication {
 
     public void run() {
         readRepeatWhenThrow(() -> initializeBridgeGame());
+
+    }
+
+    private void movingRepeat() {
+        while (bridgeGame.isContinue()) {
+            Square square = inputView.readMoving();
+            bridgeGame.move(square);
+            outputView.printMap(bridgeGame.getBridgeGameDto());
+        }
     }
 
     private void initializeBridgeGame() {
