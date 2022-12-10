@@ -37,4 +37,9 @@ public class OutputViewTest extends PrintTestTool{
                 "[   |   ]"
         );
     }
+
+    @Test
+    void printResultTest() {
+        // 위와 유사한 형식으로 구현 예정
+    }
 }
