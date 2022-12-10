@@ -52,7 +52,7 @@ public class BridgeGame {
         return isOnBridge() && (correctSquare.size() != movedSquare.size());
     }
 
-    public boolean isOnBridge() {
+    private boolean isOnBridge() {
         return IntStream.range(0, movedSquare.size())
                 .mapToObj(index -> correctSquare.get(index) == movedSquare.get(index))
                 .reduce(true, Boolean::logicalAnd);
