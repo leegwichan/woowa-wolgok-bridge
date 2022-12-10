@@ -2,7 +2,7 @@ package bridge.util;
 
 public enum MapMark {
     PREFIX("[ "),
-    SUFFIX(" ]"),
+    SUFFIX(" ]\n"),
     DELIMITER(" | "),
     SUCCESS("O"),
     FAIL("X"),
