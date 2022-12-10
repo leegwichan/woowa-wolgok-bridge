@@ -6,7 +6,7 @@ package bridge.view;
 public class OutputView {
     private static final String PREFIX_ERROR_MESSAGE = "[ERROR] ";
 
-    public void printMap(String bridgeMap) {
+    public static void printMap(String bridgeMap) {
         System.out.println(bridgeMap);
     }
 
@@ -15,7 +15,7 @@ public class OutputView {
      * <p>
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void printResult() {
+    public static void printResult() {
     }
 
     public static void printErrorMessage(String message) {
