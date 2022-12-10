@@ -2,6 +2,7 @@ package bridge;
 
 import bridge.constant.Square;
 import bridge.dto.BridgeGameDto;
+import bridge.exception.ErrorMessage;
 import bridge.helper.BridgeMakerAdapter;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -25,7 +26,11 @@ public class BridgeGame {
      * <p>
      * 이동을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void move() {
+    public void move(Square square) {
+        if (!isContinue()) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_MOVE_BRIDGE.getMessage());
+        }
+        movedSquare.add(square);
     }
 
     /**
