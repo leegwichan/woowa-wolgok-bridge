@@ -38,7 +38,7 @@ public class BridgeMap {
     }
 
     public String getBridgeMap() {
-        return bridgeTopMap.toString() + " \n" + bridgeBottomMap.toString();
+        return bridgeTopMap.toString() + "\n" + bridgeBottomMap.toString();
     }
 
     public void init() {
