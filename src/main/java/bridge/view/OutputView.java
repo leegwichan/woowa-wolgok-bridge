@@ -9,17 +9,17 @@ public class OutputView {
         System.out.println(map);
     }
 
-    public void printResult(String map, int attempt, boolean isFail) {
+    public void printResult(String map, int attempt, boolean isSuccess) {
         System.out.println("최종 게임 결과");
         printMap(map);
-        printSuccessOrFail(isFail);
+        printSuccessOrFail(isSuccess);
         printAttempt(attempt);
     }
 
-    private void printSuccessOrFail(boolean isFail) {
-        String format = "게임 성공 여부: %d\n" ;
+    private void printSuccessOrFail(boolean isSuccess) {
+        String format = "게임 성공 여부: %s\n" ;
         String result = "성공" ;
-        if (isFail) {
+        if (!isSuccess) {
             result = "실패" ;
         }
         System.out.printf(format, result);
