@@ -62,7 +62,7 @@ public class BridgeGame {
         return new BridgeGameDto(correctSquare, movedSquare, countOfTry, isSuccess());
     }
 
-    private boolean isSuccess() {
+    public boolean isSuccess() {
         if (correctSquare.size() != movedSquare.size()) {
             return false;
         }
