@@ -1,7 +1,5 @@
 package bridge.domain;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringJoiner;
 
 public class BridgeMap {
@@ -18,9 +16,9 @@ public class BridgeMap {
         init();
     }
 
-    public void addBridgeMap(Floor floor, boolean canMove) {
+    public void addBridgeMap(Direction direction, boolean canMove) {
         String mark = getMark(canMove);
-        if (floor.getDirection().equals(Direction.UP)) {
+        if (direction.equals(Direction.UP)) {
             addMarkMap(bridgeTopMap, bridgeBottomMap, mark);
             return;
         }

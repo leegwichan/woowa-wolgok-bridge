@@ -17,8 +17,7 @@ public class BridgeGame {
 
     public void move(Direction direction) {
         canMove = bridge.canMove(player, direction);
-        Floor nowFloor = bridge.getNowBridge(player);
-        bridgeMap.addBridgeMap(nowFloor, canMove);
+        bridgeMap.addBridgeMap(direction, canMove);
         player.moveForward();
     }
 
