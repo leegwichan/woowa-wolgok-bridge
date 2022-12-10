@@ -68,3 +68,8 @@ public class BridgeController {
         List<String> bridge = bridgeMaker.makeBridge(size.getSize());
         return Bridge.from(bridge);
     }
+
+    private void endGame() {
+        OutputView.printResult(bridgeGame.getBridgeMap(), bridgeGame.canMove(), bridgeGame.getTryCount());
+    }
+}

@@ -37,4 +37,8 @@ public class BridgeGame {
     public String getBridgeMap() {
         return bridgeMap.getBridgeMap();
     }
+
+    public int getTryCount() {
+        return tryCount.getTryCount();
+    }
 }
