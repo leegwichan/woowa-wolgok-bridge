@@ -24,12 +24,19 @@ public class BridgeMaker {
      * @return 입력받은 길이에 해당하는 다리 모양. 위 칸이면 "U", 아래 칸이면 "D"로 표현해야 한다.
      */
     public List<String> makeBridge(int size) {
+        validateSize(size);
         List<String> bridge = new ArrayList<>();
         for (int count = 0; count < size; count++) {
             int decideNumber = bridgeNumberGenerator.generate();
             bridge.add(getSignature(decideNumber));
         }
         return bridge;
+    }
+
+    private void validateSize(int size) {
+        if (size < 3 || size > 15) {
+            throw new IllegalArgumentException(ErrorMessage.BRIDGE_SIZE_ERROR.getMessage());
+        }
     }
 
     private String getSignature(int decideNumber) {

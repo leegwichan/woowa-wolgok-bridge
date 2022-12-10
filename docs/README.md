@@ -32,7 +32,6 @@
 
 ### BridgeGame
 - [ ] 생성시, Bridge를 랜덤 값을 통해 생성함 BridgeGame()
-  - 다리의 길이가 3 미만 20 초과인 경우, 에러를 발생함
 - [ ] 한칸 이동하도록 함 #move()
 - [ ] 재시도를 위해 건넌 길을 초기화 하는 기능 #retry()
 - [ ] 현재 상황을 전달함 #getBridgeDto()
@@ -45,6 +44,7 @@
 ### BridgeMaker
 - [x] 0과 1의 값을 통해 D, U 값을 반환 #makeBridge()
   - 0, 1의 값이 반환되지 않는 경우 에러 발생
+  - 다리의 길이가 3 미만 20 초과인 경우, 에러를 발생함
 
 ### BridgeMakerAdapter
 - [x] BridgeMaker에서 반환한 U, D값을 통해 Enum 값 반환
