@@ -24,7 +24,7 @@
   - R 또는 Q를 입력하지 않은 경우, 에러 발생
 
 ### OutputView
-- [ ] 다리 건너기 시작 안내 문구 출력 #printStartGame()
+- [x] 다리 건너기 시작 안내 문구 출력 #printStartGame()
 - [ ] 다리 현재 상황 출력 #printMap()
 - [ ] 최종 게임 결과 출력 #printResult()
   - 다리 현재 상황
