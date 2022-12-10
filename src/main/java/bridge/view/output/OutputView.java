@@ -36,7 +36,7 @@ public class OutputView {
         printRoad(dto, Square.DOWN);
     }
 
-    public void printRoad(BridgeGameDto dto, Square road) {
+    private void printRoad(BridgeGameDto dto, Square road) {
         String result = IntStream.range(0, dto.getMovedSquare().size())
                 .mapToObj(index -> getMark(dto.getCorrectSquare().get(index), dto.getMovedSquare().get(index), road))
                 .collect(Collectors.joining(BRIDGE_DELIMITER, BRIDGE_PREFIX, BRIDGE_SUFFIX));
