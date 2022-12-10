@@ -32,21 +32,10 @@ public class InputView {
      * 사용자가 이동할 칸을 입력받는다.
      */
     public Square readMoving() {
-        print(String.format(REQUEST_MOVING_FORMAT, Constant.UP_SIGNATURE, Constant.DOWN_SIGNATURE));
+        print(String.format(REQUEST_MOVING_FORMAT,
+                Square.UP.getFormat(), Square.DOWN.getFormat()));
         String input = read();
-        return getSquare(input);
-    }
-
-    private Square getSquare(String input) {
-        if (input.equals(Constant.UP_SIGNATURE)) {
-            return Square.UP;
-        }
-        if (input.equals(Constant.DOWN_SIGNATURE)) {
-            return Square.DOWN;
-        }
-        throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_LIMIT_FORMAT.getMessage(),
-                Constant.UP_SIGNATURE, Constant.DOWN_SIGNATURE)
-        );
+        return Square.getSquare(input);
     }
 
     /**

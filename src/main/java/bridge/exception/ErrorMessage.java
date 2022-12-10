@@ -6,7 +6,7 @@ public enum ErrorMessage {
     NOT_MOVE_BRIDGE("다리를 더 이상 건널 수 없습니다."),
 
     INPUT_NUMBER_ERROR("숫자를 입력해 주세요."),
-    INPUT_LIMIT_FORMAT("해당 입력 값은 %s,%s만 가능합니다.")
+    INPUT_SQUARE_FORMAT("이동하는 칸의 입력값이 올바르지 않습니다."),
     ;
 
     ErrorMessage(String message) {
