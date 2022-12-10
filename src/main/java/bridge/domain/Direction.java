@@ -15,7 +15,7 @@ public enum Direction {
         this.mark = mark;
     }
 
-    public static Direction findByMark(String mark) {
+    public static Direction from(String mark) {
         return Arrays.stream(Direction.values()).filter(direction -> direction.mark.equals(mark))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("올바른 이동 방향을 입력해주세요."));
