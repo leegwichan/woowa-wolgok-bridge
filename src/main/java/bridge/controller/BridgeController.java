@@ -14,17 +14,21 @@ public class BridgeController {
     private BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
     private BridgeGame bridgeGame;
     public void run() {
-        BridgeSize bridgeSize = readBridgeSize();
-        Bridge bridge = makeBridge(bridgeSize);
-        bridgeGame = new BridgeGame(bridge);
-
+        initGame();
         while (true) {
             repeatGame();
             if (bridgeGame.canMove() || readCommand().isQuit()) {
                 endGame();
                 break;
             }
+            bridgeGame.retry();
         }
+    }
+
+    private void initGame() {
+        BridgeSize bridgeSize = readBridgeSize();
+        Bridge bridge = makeBridge(bridgeSize);
+        bridgeGame = new BridgeGame(bridge);
     }
 
     private void repeatGame() {
