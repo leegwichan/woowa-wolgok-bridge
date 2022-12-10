@@ -3,17 +3,17 @@ package bridge.domain;
 import java.util.Objects;
 
 public class Floor {
-    private final String direction;
+    private final Direction direction;
 
     private Floor(String direction) {
-        this.direction = direction;
+        this.direction = Direction.from(direction);
     }
 
     public static Floor from(String direction) {
         return new Floor(direction);
     }
 
-    public String getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
@@ -24,10 +24,7 @@ public class Floor {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Floor)) {
-            return false;
-        }
-        if (((Floor) obj).direction.equals(this.direction)) {
+        if (this.direction.equals(obj)) {
             return true;
         }
         return false;

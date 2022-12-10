@@ -20,7 +20,7 @@ public class BridgeMap {
 
     public void addBridgeMap(Floor floor, boolean canMove) {
         String mark = getMark(canMove);
-        if (floor.getDirection().equals("U")) {
+        if (floor.getDirection().equals(Direction.UP)) {
             addMarkMap(bridgeTopMap, bridgeBottomMap, mark);
             return;
         }
