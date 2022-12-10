@@ -20,4 +20,11 @@ public enum Direction {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("올바른 이동 방향을 입력해주세요."));
     }
+
+    public static String findMarkByCode(int code) {
+        return Arrays.stream(Direction.values()).filter(direction -> direction.code == code)
+                .findAny()
+                .get()
+                .mark;
+    }
 }
