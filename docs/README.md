@@ -71,8 +71,8 @@
 - [x] BridgeMaker에서 반환한 U, D값을 통해 Enum 값 반환
   - 반환 값이 U, D가 아닌 경우, 예외를 발생시킴
 
-### BridgeApplication
-- [ ] 전반적인 로직 구현
+### BridgeGameApplication
+- [x] 전반적인 로직 구현
   - [x] 초기화 과정 # initializeBridgeGame()
   - [x] 에러 발생시, 다시 실행하는 기능
   - [x] 반복하여 다리을 건너도록 하는 기능

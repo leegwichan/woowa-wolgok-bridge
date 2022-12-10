@@ -1,9 +1,11 @@
 package bridge;
 
+import bridge.constant.RetryStatus;
 import bridge.constant.Square;
 import bridge.factory.BridgeFactory;
 import bridge.view.input.InputView;
 import bridge.view.output.OutputView;
+import java.util.function.Supplier;
 
 public class BridgeGameApplication {
 
@@ -14,9 +16,17 @@ public class BridgeGameApplication {
     public void run() {
         readRepeatWhenThrow(() -> initializeBridgeGame());
 
+        do {
+            movingRepeat();
+        } while (!isFinish());
+
+        outputView.printResult(bridgeGame.getBridgeGameDto());
     }
 
     private void movingRepeat() {
+        if (bridgeGame.isContinue() == false) {
+            bridgeGame.retry();
+        }
         while (bridgeGame.isContinue()) {
             readRepeatWhenThrow(() -> move());
             outputView.printMap(bridgeGame.getBridgeGameDto());
