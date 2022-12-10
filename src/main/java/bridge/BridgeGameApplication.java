@@ -28,6 +28,14 @@ public class BridgeGameApplication {
         bridgeGame.move(square);
     }
 
+    private boolean isFinish() {
+        if (bridgeGame.isSuccess()) {
+            return true;
+        }
+        RetryStatus status = readRepeatWhenThrow(() -> inputView.readGameCommand());
+        return status == RetryStatus.Quit;
+    }
+
     private void initializeBridgeGame() {
         int bridgeSize = inputView.readBridgeSize();
         bridgeGame = BridgeFactory.createBridgeGame(bridgeSize);
@@ -38,6 +46,16 @@ public class BridgeGameApplication {
             try {
                 method.run();
                 return;
+            } catch (IllegalArgumentException exception) {
+                outputView.printErrorMessage(exception);
+            }
+        }
+    }
+
+    private RetryStatus readRepeatWhenThrow(Supplier<RetryStatus> method) {
+        while (true) {
+            try {
+                return method.get();
             } catch (IllegalArgumentException exception) {
                 outputView.printErrorMessage(exception);
             }
