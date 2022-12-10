@@ -1,10 +1,10 @@
 package bridge.service;
 
-import bridge.domain.*;
+import bridge.domain.Bridge;
+import bridge.domain.BridgeMap;
+import bridge.domain.Direction;
+import bridge.domain.Player;
 
-/**
- * 다리 건너기 게임을 관리하는 클래스
- */
 public class BridgeGame {
     private static Bridge bridge;
     private BridgeMap bridgeMap = new BridgeMap();

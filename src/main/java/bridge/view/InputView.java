@@ -2,9 +2,6 @@ package bridge.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-/**
- * 사용자로부터 입력을 받는 역할을 한다.
- */
 public class InputView {
 
     public static int readBridgeSize() {
@@ -28,7 +25,7 @@ public class InputView {
         try {
             Integer.parseInt(value);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자를 입력해야 합니다.");
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
         }
     }
 }

@@ -27,8 +27,4 @@ public enum Direction {
                 .get()
                 .mark;
     }
-
-    public String getMark() {
-        return mark;
-    }
 }

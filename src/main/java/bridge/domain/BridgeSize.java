@@ -21,7 +21,7 @@ public class BridgeSize {
     }
 
     private void validateBridgeSize(int size) {
-        if (size<BRIDGE_SIZE_MIN || size>BRIDGE_SIZE_MAX) {
+        if (size < BRIDGE_SIZE_MIN || size > BRIDGE_SIZE_MAX) {
             throw new IllegalArgumentException(BRIDGE_SIZE_ERROR);
         }
     }
