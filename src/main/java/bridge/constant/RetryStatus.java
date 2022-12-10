@@ -1,5 +1,7 @@
 package bridge.constant;
 
+import bridge.exception.ErrorMessage;
+
 public enum RetryStatus {
     Retry("R"),
     Quit("Q");
@@ -16,7 +18,7 @@ public enum RetryStatus {
                 return retry;
             }
         }
-        throw new IllegalArgumentException("[ERROR] "); // 에러 메세지 설정
+        throw new IllegalArgumentException(ErrorMessage.INPUT_RETRY_STATUS.getMessage()); // 에러 메세지 설정
     }
 
     public String getFormat() {

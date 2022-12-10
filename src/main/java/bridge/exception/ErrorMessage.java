@@ -7,6 +7,7 @@ public enum ErrorMessage {
 
     INPUT_NUMBER_ERROR("숫자를 입력해 주세요."),
     INPUT_SQUARE_FORMAT("이동하는 칸의 입력값이 올바르지 않습니다."),
+    INPUT_RETRY_STATUS("재시도 여부 입력 값이 올바르지 않습니다.");
     ;
 
     ErrorMessage(String message) {
