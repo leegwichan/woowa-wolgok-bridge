@@ -5,13 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class BridgeTest {
     private Bridge bridge;
+
     @BeforeEach
     void setUp() {
         bridge = Bridge.from(List.of("U", "D"));

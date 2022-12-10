@@ -24,8 +24,4 @@ public class Bridge {
     public boolean isFinish(Player player) {
         return bridge.size() == player.getPosition();
     }
-
-    public Floor getNowBridge(Player player) {
-        return bridge.get(player.getPosition());
-    }
 }
