@@ -18,10 +18,14 @@ public class BridgeGameApplication {
 
     private void movingRepeat() {
         while (bridgeGame.isContinue()) {
-            Square square = inputView.readMoving();
-            bridgeGame.move(square);
+            readRepeatWhenThrow(() -> move());
             outputView.printMap(bridgeGame.getBridgeGameDto());
         }
+    }
+
+    private void move() {
+        Square square = inputView.readMoving();
+        bridgeGame.move(square);
     }
 
     private void initializeBridgeGame() {
