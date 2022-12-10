@@ -46,6 +46,9 @@ public class BridgeGame {
     }
 
     public boolean isContinue() {
+        if (movedSquare.size() == 0) {
+            return true;
+        }
         return isOnBridge() && (correctSquare.size() != movedSquare.size());
     }
 
